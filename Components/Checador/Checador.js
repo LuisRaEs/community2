@@ -2,6 +2,7 @@
 import Boton from "@/Components/Boton/Boton"
 import "./Checador.css"
 import { useEffect, useState } from "react";
+import Input2 from "../Input2/Input2";
 
 export default function Checador(){
 
@@ -9,6 +10,7 @@ export default function Checador(){
     useEffect(() => {
         const interval = setInterval(() => {
         let now  = new Date();
+        
           setReloj(()=>{
             let hours = now.getHours(), minutes = now.getMinutes(), seconds = now.getSeconds()
             if(String(hours).length==1)
@@ -23,6 +25,10 @@ export default function Checador(){
         return () => clearInterval(interval);
       }, []);
     
+    const handleChange = (e)=>
+    {
+        console.log(e.target.value)
+    }
 
 
     const iniciar = () => {
@@ -45,21 +51,19 @@ export default function Checador(){
             </div>
             <div id="botones">
                 <Boton
-                    id ="iniciar"
-                    name = "iniciar"
-                    value = "iniciar"
+                    identifier ="iniciar"
                     onClick = {iniciar}
                     icon = {<i className="bi bi-play-circle"></i>}
                     
                 />
                 <Boton
-                    id = "finalizar"
-                    value = "finalizar"
-                    name = "finalizar"
+                    identifier = "finalizar"
                     onClick = {finalizar}
                     icon = {<i className="bi bi-pause-circle"></i>}
                 />
+
             </div>
+            
         </div>
     )
 }

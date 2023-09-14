@@ -1,14 +1,14 @@
 
 import "./Boton.css"
 
-export default function Boton ({id,value,icon,onClick}){
+export default function Boton ({identifier,icon,onClick}){
     const handleClick = ()=>{
 
     }
     return(
-        <div className="Boton" id={id} onClick={()=>onClick()}>
-            {icon}
-            <p>{value}</p>
+        <div className="Boton" id={identifier} name={identifier} onClick={()=>onClick()}>
+            {icon ? icon : ""}
+            <p>{identifier}</p>
         </div>
     )
 }
